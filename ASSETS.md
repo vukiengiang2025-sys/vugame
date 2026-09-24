@@ -1,10 +1,12 @@
-# VuGame asset guide
+# VuGame asset policy
 
-The starter uses procedural assets so it can build without binary files. Recommended free sources for future additions:
+The starter contains no downloaded binary assets. Visuals are procedural, which keeps the repository small and avoids unclear licensing.
 
-- Kenney: https://kenney.nl/assets (CC0/public-domain style assets)
-- OpenGameArt: https://opengameart.org/ (check each asset license)
-- Google Material Symbols: https://fonts.google.com/icons (Apache 2.0)
-- Freesound: https://freesound.org/ (check the individual audio license)
+Suggested sources, subject to each asset's license:
 
-Store raster images in `app/src/main/res/drawable`, vector icons in `app/src/main/res/drawable`, and short audio effects in `app/src/main/res/raw`. Record attribution in `THIRD_PARTY_NOTICES.md`.
+- Kenney: https://kenney.nl/assets
+- OpenGameArt: https://opengameart.org/
+- Material Symbols: https://fonts.google.com/icons
+- Freesound: https://freesound.org/
+
+Record the asset URL, author, license and date in `THIRD_PARTY_NOTICES.md`. Prefer CC0, MIT, Apache-2.0 or another license compatible with your project.

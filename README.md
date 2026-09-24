@@ -1,21 +1,38 @@
 # VuGame
 
-Minimal Android 2D game starter built with Kotlin, Jetpack Compose and Canvas.
+VuGame is now a practical Android 2D game starter, inspired by patterns commonly used by libGDX, Korge, Godot and native Compose game samples. It does **not** copy third-party repositories or assets; it provides a small, license-safe core that can be extended.
 
 ## Included
-- Frame-based game loop using `awaitFrame()` with delta time.
-- Touch/drag input for a mobile player character.
-- Procedural starfield, enemies, particles and simple effects.
-- No external images or paid assets: visuals are drawn with Canvas and are easy to replace.
-- Small project structure ready for adding sprites, sound, menus and levels.
+
+- Frame loop using Compose `withFrameNanos` and capped delta time.
+- Responsive viewport sizing for portrait or landscape.
+- Scene state: playing, paused and game over.
+- Touch drag input with clamped player movement.
+- Enemy spawning, movement and circle collision detection.
+- Score system and restart flow.
+- Procedural starfield and particle effects.
+- Clean separation between `MainActivity` rendering/UI and `game/GameEngine.kt` state/rules.
+- Asset and licensing guidance.
 
 ## Run
-Open the repository in Android Studio (JDK 17), sync Gradle and run the `app` configuration on an Android device or emulator.
 
-## Extend
-- Add sprites to `app/src/main/res/drawable` and replace the Canvas primitives with `ImageBitmap`.
-- Add audio under `app/src/main/res/raw` and use `SoundPool` for short effects.
-- Move rules into `game/`, add collision detection and introduce screens in Compose.
-- Keep game updates in `GameViewModel.update(dt)` and rendering in `GameCanvas`.
+Open in Android Studio with JDK 17, sync Gradle, and run `app` on an Android device or emulator.
 
-The sample intentionally uses procedural assets so the repository stays small and license-safe.
+## Architecture
+
+```text
+app/src/main/java/com/vugame/starter/
+├── MainActivity.kt       # Compose UI, renderer and input
+└── game/GameEngine.kt    # loop-facing state, entities, rules and collisions
+```
+
+## How to extend
+
+1. Add a `Scene` implementation for menus, platformer or top-down games.
+2. Replace Canvas primitives with `ImageBitmap` sprites from `res/drawable`.
+3. Add `SoundPool` for short effects and `MediaPlayer` for music.
+4. Add fixed-timestep physics when deterministic simulation is needed.
+5. Add unit tests around collision and scoring before adding complex gameplay.
+6. Add Google Play Games services only when achievements or leaderboards are required.
+
+See `ASSETS.md` and `THIRD_PARTY_NOTICES.md` before adding downloaded assets.
